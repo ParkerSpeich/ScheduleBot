@@ -1,8 +1,8 @@
 import imapclient, pyzmail, pprint, openpyxl, datetime, os, time, logging
 from twilio.rest import Client
 
-#logging.basicConfig(filename='/opt/python/log/my.log', level=logging.DEBUG)
-logging.basicConfig(filename='/tmp/my.log', level=logging.DEBUG)
+logging.basicConfig(filename='/opt/python/log/my.log', level=logging.DEBUG)
+#logging.basicConfig(filename='/tmp/my.log', level=logging.DEBUG)
 accountSID = 'ACd2b73bc31fb0e249fe8540c3d6ba32a1'
 authToken = '686d0bdab0a6d12b6e31cf859af10e87'
 myTwilioNumber = '+15126400707 '
