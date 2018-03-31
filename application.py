@@ -1,6 +1,6 @@
 from flask import Flask
 import logging
-logging.basicConfig(filename='/opt/python/log/my.log', level=logging.DEBUG)
+logging.basicConfig(filename='/opt/python/log/web.log', level=logging.DEBUG)
 logging.debug('Start')
 # print a nice greeting.
 def say_hello(username = "World"):
