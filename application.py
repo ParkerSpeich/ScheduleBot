@@ -30,7 +30,8 @@ application.add_url_rule('/<username>', 'hello', (lambda username:
 
 # run the app.
 
-application.debug = True
-logging.debug('Before')
-application.run()
-logging.debug('After')
+if __name__ == '__main__'
+    application.debug = True
+    logging.debug('Before')
+    application.run()
+    logging.debug('After')
