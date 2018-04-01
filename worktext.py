@@ -1,4 +1,4 @@
-import imapclient, pyzmail, pprint, openpyxl, datetime, os, time, logging
+import pyzmail, imapclient, pprint, openpyxl, datetime, os, time, logging
 from twilio.rest import Client
 
 logging.basicConfig(filename='/opt/python/log/worktext.log', level=logging.DEBUG)
