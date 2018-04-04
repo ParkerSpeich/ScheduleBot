@@ -12,14 +12,14 @@ def updateTimes():
 	times = {}
 	imapObj = imapclient.IMAPClient('imap.gmail.com', ssl=True)
 	imapObj.login('parker.speich@gmail.com', os.environ['PASS'])
-	print("Logged In")
+	logging.info("Logged In")
 	imapObj.select_folder('INBOX', readonly=True)
 	uids = imapObj.gmail_search('Dominos Schedule')
 	rawMessages = imapObj.fetch(uids, ['BODY[]'])
-	print('Fetched: '+str(len(uids))+' Emails')
+	logging.info('Fetched: '+str(len(uids))+' Emails')
 	for index,uid in enumerate(range(len(uids)-2,len(uids))):
 		msg = pyzmail.PyzMessage.factory(rawMessages[uids[uid]][b'BODY[]'])
-		print('Parsing Email: '+str((index+1)))
+		logging.info('Parsing Email: '+str((index+1)))
 		for part in msg.mailparts:
 			if part.type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
 				payload = part.get_payload()
@@ -36,7 +36,7 @@ def updateTimes():
 	return times
 
 def main():
-	print('Updating Time List')
+	logging.info('Updating Time List')
 	times = updateTimes()
 
 	#Check to see if it is one hour before work and send a text
@@ -47,10 +47,10 @@ def main():
 			oneHrBeforeWork = datetime.time(times[currentDate].hour+11,times[currentDate].minute)
 		else:
 			oneHrBeforeWork = datetime.time(times[currentDate].hour-1,times[currentDate].minute)
-		logging.debug("Current time = "+str(currentTime))
-		logging.debug("One hr before work = "+str(oneHrBeforeWork))
+		logging.info("Current time = "+str(currentTime))
+		logging.info("One hr before work = "+str(oneHrBeforeWork))
 		if (currentTime == oneHrBeforeWork):
 			twilioCli = Client(accountSID, authToken)
 			message = twilioCli.messages.create(body="You have work at: "+str(times[currentDate])[:5], from_=myTwilioNumber, to=myCellPhone)
-			print('Text Sent To: ',myCellPhone)
+			logging.info('Text Sent To: '+myCellPhone)
 main()
