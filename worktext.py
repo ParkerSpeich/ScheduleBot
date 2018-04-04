@@ -41,7 +41,7 @@ def main():
 
 	#Check to see if it is one hour before work and send a text
 	currentDate = datetime.datetime(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day)
-	currentTime = datetime.time(datetime.datetime.now().hour,datetime.datetime.now().minute)
+	currentTime = datetime.time(datetime.datetime.now().hour - 5,datetime.datetime.now().minute)
 	if times[currentDate] != 'off':
 		if times[currentDate].hour < 9:
 			oneHrBeforeWork = datetime.time(times[currentDate].hour+11,times[currentDate].minute)
