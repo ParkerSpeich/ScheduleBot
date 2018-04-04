@@ -1,7 +1,7 @@
 import pyzmail, imapclient, pprint, openpyxl, datetime, os, time, logging
 from twilio.rest import Client
 
-logging.basicConfig(filename='/opt/python/log/worktext.log', level=logging.DEBUG)
+logging.basicConfig(filename='/opt/python/log/worktext.log', level=logging.INFO)
 #logging.basicConfig(filename='/tmp/my.log', level=logging.DEBUG)
 accountSID = 'ACd2b73bc31fb0e249fe8540c3d6ba32a1'
 authToken = os.environ['AUTH_TOKEN']
