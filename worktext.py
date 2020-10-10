@@ -7,6 +7,7 @@ accountSID = 'ACd2b73bc31fb0e249fe8540c3d6ba32a1'
 authToken = os.environ['AUTH_TOKEN']
 myTwilioNumber = '+15126400707 '
 myCellPhone = os.environ['CELL_PHONE_NUMBER']
+#this is for a class
 
 def updateTimes():
 	times = {}
